@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OblivionPath | Official Game Site</title>
 
   <style>
@@ -56,21 +56,91 @@
       transform: scale(1.07);
       box-shadow: 0 0 55px rgba(127,92,255,1);
     }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .card p {
+      padding: 20px;
+      font-size: 16px;
+      color: #cccccc;
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- HERO (AYNI KALDI) -->
   <header>
     <h1>OblivionPath</h1>
     <p>
-      OblivionPath is a dark fantasy indie game where every choice
-      shapes your fate. Explore forgotten realms, face ancient horrors,
-      and walk the path between light and oblivion.
+      OblivionPath is a dark fantasy indie game where every choice shapes your fate.
+      Explore forgotten realms, face ancient horrors, and walk the path between
+      light and oblivion.
     </p>
 
     <a class="download-btn" href="#">
-      Download (Coming Soon)
+      Download
     </a>
   </header>
+
+  <!-- GAME INFO + IMAGES -->
+  <section>
+    <h2>Game World & Features</h2>
+    <p>
+      Enter a broken world filled with lost civilizations, corrupted creatures,
+      and mysterious powers. OblivionPath focuses on atmosphere, exploration,
+      and meaningful decisions.
+    </p>
+
+    <div class="gallery">
+      <div class="card">
+        <img src="https://picsum.photos/600/400?random=1" alt="Dark forest">
+        <p>
+          Explore haunting environments filled with ancient ruins, twisted forests,
+          and hidden secrets waiting to be uncovered.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/600/400?random=2" alt="Combat scene">
+        <p>
+          Engage in intense combat where timing, positioning, and strategy matter.
+          Every enemy encounter is a test of survival.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/600/400?random=3" alt="Mysterious ruins">
+        <p>
+          Discover the lore of a forgotten world through environmental storytelling,
+          cryptic dialogues, and ancient artifacts.
+        </p>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
