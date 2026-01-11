@@ -2,25 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>OblivionPath</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OblivionPath | Official Game Site</title>
+
   <style>
     body {
-      background: #0b0b0b;
-      color: white;
-      font-family: Arial;
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at top, #1a1a2e, #050507);
+      color: #eaeaea;
       text-align: center;
-      padding-top: 100px;
     }
-    button {
-      padding: 15px 30px;
+
+    header {
+      min-height: 100vh;
+      padding: 80px 20px;
+      background: linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.9)
+      );
+    }
+
+    h1 {
+      font-size: 64px;
+      margin: 0;
+      color: #cbb6ff;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(127,92,255,0.7);
+    }
+
+    p {
+      max-width: 700px;
+      margin: 25px auto;
       font-size: 18px;
-      cursor: pointer;
+      color: #d0d0d0;
+      line-height: 1.6;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 18px 46px;
+      font-size: 18px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #7f5cff, #3a1cff);
+      box-shadow: 0 0 35px rgba(127,92,255,0.8);
+      transition: 0.3s;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 55px rgba(127,92,255,1);
     }
   </style>
 </head>
+
 <body>
-  <h1>OblivionPath</h1>
-  <p>A dark fantasy indie game.</p>
-  <button>Download</button>
+  <header>
+    <h1>OblivionPath</h1>
+    <p>
+      OblivionPath is a dark fantasy indie game where every choice
+      shapes your fate. Explore forgotten realms, face ancient horrors,
+      and walk the path between light and oblivion.
+    </p>
+
+    <a class="download-btn" href="#">
+      Download (Coming Soon)
+    </a>
+  </header>
 </body>
 </html>
