@@ -1,92 +1,151 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>2D Oyun | GitHub Pages</title>
-    <style>
-        body {
-            margin: 0;
-            background: #111;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        canvas {
-            background: #222;
-            display: block;
-            margin: 20px auto;
-            border: 2px solid #fff;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>BlackVector | 2D Oyun</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    margin:0;
+    background:#0b0b0b;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    text-align:center;
+}
+header{
+    padding:20px;
+    background:linear-gradient(90deg,#000,#111);
+}
+h1{color:#00ffe1;margin:0;}
+section{padding:20px;}
+canvas{
+    background:#111;
+    border:2px solid #00ffe1;
+    display:block;
+    margin:20px auto;
+}
+button{
+    background:#00ffe1;
+    border:none;
+    padding:10px 20px;
+    font-size:16px;
+    cursor:pointer;
+}
+footer{
+    padding:15px;
+    font-size:12px;
+    color:#888;
+}
+</style>
 </head>
+
 <body>
 
-<h1>🎮 2D Top Yakalama Oyunu</h1>
-<p>Mouse ile hareket et – Topları yakala</p>
-<h2>Skor: <span id="score">0</span></h2>
+<header>
+    <h1>BLACKVECTOR</h1>
+    <p>2D Arena Survival Game</p>
+</header>
 
-<canvas id="game" width="400" height="500"></canvas>
+<section>
+    <h2>OYUN</h2>
+    <p>Ok tuşları / WASD ile hareket et – Kırmızı düşmanlardan kaç</p>
+    <h3>Skor: <span id="score">0</span></h3>
+    <canvas id="game" width="420" height="520"></canvas>
+    <button onclick="resetGame()">Yeniden Başla</button>
+</section>
+
+<section>
+    <h2>HAKKINDA</h2>
+    <p>
+        BlackVector hızlı refleks gerektiren,
+        minimalist bir 2D arena oyunudur.
+        Amacın hayatta kalmak ve en yüksek skoru yapmak.
+    </p>
+</section>
+
+<footer>
+    © 2026 BlackVector – GitHub Pages
+</footer>
 
 <script>
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const scoreEl = document.getElementById("score");
 
-let player = { x: 180, y: 460, w: 40, h: 20 };
-let balls = [];
-let score = 0;
+let player, enemies, score, gameOver;
 
-canvas.addEventListener("mousemove", e => {
-    const rect = canvas.getBoundingClientRect();
-    player.x = e.clientX - rect.left - player.w / 2;
+function init(){
+    player = {x:200,y:260,size:20,speed:4};
+    enemies=[];
+    score=0;
+    gameOver=false;
+}
+init();
+
+document.addEventListener("keydown", e=>{
+    if(gameOver) return;
+    if(e.key==="ArrowLeft"||e.key==="a") player.x-=player.speed;
+    if(e.key==="ArrowRight"||e.key==="d") player.x+=player.speed;
+    if(e.key==="ArrowUp"||e.key==="w") player.y-=player.speed;
+    if(e.key==="ArrowDown"||e.key==="s") player.y+=player.speed;
 });
 
-function spawnBall() {
-    balls.push({
-        x: Math.random() * 380,
-        y: 0,
-        r: 10,
-        speed: 2 + Math.random() * 2
+function spawnEnemy(){
+    enemies.push({
+        x:Math.random()*400,
+        y:Math.random()*500,
+        size:15,
+        vx:(Math.random()<0.5?-2:2),
+        vy:(Math.random()<0.5?-2:2)
     });
 }
 
-function update() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+function update(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
     // Player
-    ctx.fillStyle = "cyan";
-    ctx.fillRect(player.x, player.y, player.w, player.h);
+    ctx.fillStyle="#00ffe1";
+    ctx.fillRect(player.x,player.y,player.size,player.size);
 
-    // Balls
-    ctx.fillStyle = "orange";
-    balls.forEach((b, i) => {
-        b.y += b.speed;
-        ctx.beginPath();
-        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-        ctx.fill();
+    // Enemies
+    ctx.fillStyle="red";
+    enemies.forEach(e=>{
+        e.x+=e.vx;
+        e.y+=e.vy;
 
-        // Collision
-        if (
-            b.y + b.r > player.y &&
-            b.x > player.x &&
-            b.x < player.x + player.w
-        ) {
-            balls.splice(i, 1);
-            score++;
-            scoreEl.textContent = score;
-        }
+        if(e.x<0||e.x>canvas.width) e.vx*=-1;
+        if(e.y<0||e.y>canvas.height) e.vy*=-1;
 
-        // Missed
-        if (b.y > canvas.height) {
-            balls.splice(i, 1);
+        ctx.fillRect(e.x,e.y,e.size,e.size);
+
+        if(
+            player.x<e.x+e.size &&
+            player.x+player.size>e.x &&
+            player.y<e.y+e.size &&
+            player.y+player.size>e.y
+        ){
+            gameOver=true;
         }
     });
 
-    requestAnimationFrame(update);
+    if(!gameOver){
+        score++;
+        scoreEl.textContent=score;
+        requestAnimationFrame(update);
+    }else{
+        ctx.fillStyle="white";
+        ctx.font="30px Arial";
+        ctx.fillText("GAME OVER",110,260);
+    }
 }
 
-setInterval(spawnBall, 1000);
+setInterval(spawnEnemy,1500);
 update();
+
+function resetGame(){
+    init();
+    update();
+}
 </script>
 
 </body>
