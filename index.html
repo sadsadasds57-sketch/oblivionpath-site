@@ -1,111 +1,93 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0; padding: 0;
-    background: #0d0d0d;
-    color: #fff;
-}
-header {
-    text-align: center;
-    padding: 100px 20px;
-    background: url('../img/bg-forest.png') center/cover no-repeat;
-}
-header h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-header p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-.btn-primary {
-    padding: 12px 24px;
-    background: #ff6600;
-    text-decoration: none;
-    color: white;
-    border-radius: 8px;
-    font-weight: bold;
-}
-#features {
-    padding: 50px 20px;
-    background: #111;
-    text-align: center;
-}
-#gallery {
-    padding: 50px 20px;
-}
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-.grid img {
-    width: 100%;
-    border-radius: 8px;
-}
-#download {
-    background: #111;
-    text-align: center;
-    padding: 50px 20px;
-}
-.btn-download {
-    font-size: 1.2em;
-    background: #00cc66;
-    color: #fff;
-    padding: 12px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-footer {
-    text-align: center;
-    padding: 25px;
-    font-size: 0.9em;
-    background: #090909;
-}
-xxxxxxxxxxxxxxxxxxxxx
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>2D Adventure Oyunu | Resmi Site</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>2D Oyun | GitHub Pages</title>
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        canvas {
+            background: #222;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #fff;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>🌟 2D Adventure Maceraya Hoşgeldin!</h1>
-        <p>Bu oyun seni eşsiz bir dünyaya davet ediyor...</p>
-        <a href="#download" class="btn-primary">Şimdi İndir</a>
-    </header>
 
-    <section id="features">
-        <h2>🎮 Özellikler</h2>
-        <ul>
-            <li>🗺️ Sürükleyici 2D Macera</li>
-            <li>🔥 Zorlu düşmanlar ve bulmacalar</li>
-            <li>🌳 Harika ortamlar ve animasyonlar</li>
-            <li>💾 Kaydedilebilir ilerleme</li>
-        </ul>
-    </section>
+<h1>🎮 2D Top Yakalama Oyunu</h1>
+<p>Mouse ile hareket et – Topları yakala</p>
+<h2>Skor: <span id="score">0</span></h2>
 
-    <section id="gallery">
-        <h2>📸 Oyun Görselleri</h2>
-        <div class="grid">
-            <img src="assets/img/bg-forest.png" alt="Orman Arkaplan">
-            <img src="assets/img/hero-run.png" alt="Karakter Koşuyor">
-            <img src="assets/img/enemy.png" alt="Düşman Karakter">
-            <img src="assets/img/tileset.png" alt="Oyun Tile Set">
-        </div>
-    </section>
+<canvas id="game" width="400" height="500"></canvas>
 
-    <section id="download">
-        <h2>⬇️ Oyun İndir</h2>
-        <a href="downloads/2d-adventure.zip" class="btn-download">📦 ZIP Dosyası İndir</a>
-        <p>Windows, Mac & Linux destekli.</p>
-    </section>
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+const scoreEl = document.getElementById("score");
 
-    <footer>
-        <p>&copy; 2026 2D Adventure Games</p>
-        <p>📧 iletişim@2dadventure.com</p>
-    </footer>
+let player = { x: 180, y: 460, w: 40, h: 20 };
+let balls = [];
+let score = 0;
+
+canvas.addEventListener("mousemove", e => {
+    const rect = canvas.getBoundingClientRect();
+    player.x = e.clientX - rect.left - player.w / 2;
+});
+
+function spawnBall() {
+    balls.push({
+        x: Math.random() * 380,
+        y: 0,
+        r: 10,
+        speed: 2 + Math.random() * 2
+    });
+}
+
+function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Player
+    ctx.fillStyle = "cyan";
+    ctx.fillRect(player.x, player.y, player.w, player.h);
+
+    // Balls
+    ctx.fillStyle = "orange";
+    balls.forEach((b, i) => {
+        b.y += b.speed;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Collision
+        if (
+            b.y + b.r > player.y &&
+            b.x > player.x &&
+            b.x < player.x + player.w
+        ) {
+            balls.splice(i, 1);
+            score++;
+            scoreEl.textContent = score;
+        }
+
+        // Missed
+        if (b.y > canvas.height) {
+            balls.splice(i, 1);
+        }
+    });
+
+    requestAnimationFrame(update);
+}
+
+setInterval(spawnBall, 1000);
+update();
+</script>
 
 </body>
 </html>
