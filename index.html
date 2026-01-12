@@ -1,152 +1,151 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BlackVector | 2D Oyun</title>
+<title>OblivionPath | Dark 2D PvP Game</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
     margin:0;
-    background:#0b0b0b;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+    background:#0b0806;
+    color:#e6dccb;
+    font-family:"Georgia",serif;
+}
+.hero{
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,.6), #0b0806),
+      url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b");
+    background-size:cover;
+    background-position:center;
+    padding:80px 20px;
     text-align:center;
 }
-header{
+.hero h1{
+    font-size:56px;
+    color:#d6b46c;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+.hero p{
+    max-width:700px;
+    margin:0 auto 30px;
+    font-size:18px;
+    color:#cfc2a3;
+}
+.download-btn{
+    display:inline-block;
+    padding:15px 40px;
+    background:#6b4a1e;
+    color:#fff;
+    text-decoration:none;
+    font-size:18px;
+    border:2px solid #d6b46c;
+}
+.section{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+.section h2{
+    text-align:center;
+    font-size:32px;
+    color:#d6b46c;
+    margin-bottom:40px;
+}
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.card{
+    background:#14100c;
+    border:1px solid #3a2a16;
     padding:20px;
-    background:linear-gradient(90deg,#000,#111);
+    text-align:center;
 }
-h1{color:#00ffe1;margin:0;}
-section{padding:20px;}
-canvas{
-    background:#111;
-    border:2px solid #00ffe1;
-    display:block;
-    margin:20px auto;
+.card img{
+    width:100%;
+    border-radius:6px;
 }
-button{
-    background:#00ffe1;
-    border:none;
-    padding:10px 20px;
-    font-size:16px;
-    cursor:pointer;
+.card h3{
+    color:#d6b46c;
+    margin:15px 0 10px;
+}
+.modes img{
+    width:100%;
+    border-radius:6px;
 }
 footer{
-    padding:15px;
-    font-size:12px;
-    color:#888;
+    text-align:center;
+    padding:30px;
+    color:#7d6a4a;
+    font-size:13px;
+    border-top:1px solid #2a1d10;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>BLACKVECTOR</h1>
-    <p>2D Arena Survival Game</p>
-</header>
-
-<section>
-    <h2>OYUN</h2>
-    <p>Ok tuşları / WASD ile hareket et – Kırmızı düşmanlardan kaç</p>
-    <h3>Skor: <span id="score">0</span></h3>
-    <canvas id="game" width="420" height="520"></canvas>
-    <button onclick="resetGame()">Yeniden Başla</button>
-</section>
-
-<section>
-    <h2>HAKKINDA</h2>
+<!-- HERO -->
+<div class="hero">
+    <h1>OBLIVIONPATH</h1>
     <p>
-        BlackVector hızlı refleks gerektiren,
-        minimalist bir 2D arena oyunudur.
-        Amacın hayatta kalmak ve en yüksek skoru yapmak.
+        A dark, competitive 2D PvP game where only your
+        skills will determine who survives in the ominous arena.
     </p>
-</section>
+
+    <!-- 🔴 BURAYA KENDİ İNDİRME LİNKİN -->
+    <a class="download-btn" href="BURAYA_LINK_KOY" target="_blank">
+        Download the Game
+    </a>
+</div>
+
+<!-- CHARACTERS -->
+<div class="section">
+    <h2>Playable Characters</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1606112219348-204d7d8b94ee">
+            <h3>Warrior</h3>
+            <p>Strong melee fighter wielding sword and shield for heavy damage.</p>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1520975922284-4f3a4a7f0c92">
+            <h3>Assassin</h3>
+            <p>Stealthy rogue who excels in fast, deadly ambushes.</p>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0">
+            <h3>Mage</h3>
+            <p>Powerful spellcaster controlling the battlefield with dark magic.</p>
+        </div>
+    </div>
+</div>
+
+<!-- GAMEPLAY -->
+<div class="section">
+    <h2>Gameplay Modes</h2>
+    <div class="cards modes">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
+            <h3>1v1</h3>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367f">
+            <h3>2v2</h3>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511882150382-421056c89033">
+            <h3>FFA</h3>
+        </div>
+    </div>
+</div>
 
 <footer>
-    © 2026 BlackVector – GitHub Pages
+    © 2026 OblivionPath. All rights reserved.
 </footer>
-
-<script>
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
-const scoreEl = document.getElementById("score");
-
-let player, enemies, score, gameOver;
-
-function init(){
-    player = {x:200,y:260,size:20,speed:4};
-    enemies=[];
-    score=0;
-    gameOver=false;
-}
-init();
-
-document.addEventListener("keydown", e=>{
-    if(gameOver) return;
-    if(e.key==="ArrowLeft"||e.key==="a") player.x-=player.speed;
-    if(e.key==="ArrowRight"||e.key==="d") player.x+=player.speed;
-    if(e.key==="ArrowUp"||e.key==="w") player.y-=player.speed;
-    if(e.key==="ArrowDown"||e.key==="s") player.y+=player.speed;
-});
-
-function spawnEnemy(){
-    enemies.push({
-        x:Math.random()*400,
-        y:Math.random()*500,
-        size:15,
-        vx:(Math.random()<0.5?-2:2),
-        vy:(Math.random()<0.5?-2:2)
-    });
-}
-
-function update(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    // Player
-    ctx.fillStyle="#00ffe1";
-    ctx.fillRect(player.x,player.y,player.size,player.size);
-
-    // Enemies
-    ctx.fillStyle="red";
-    enemies.forEach(e=>{
-        e.x+=e.vx;
-        e.y+=e.vy;
-
-        if(e.x<0||e.x>canvas.width) e.vx*=-1;
-        if(e.y<0||e.y>canvas.height) e.vy*=-1;
-
-        ctx.fillRect(e.x,e.y,e.size,e.size);
-
-        if(
-            player.x<e.x+e.size &&
-            player.x+player.size>e.x &&
-            player.y<e.y+e.size &&
-            player.y+player.size>e.y
-        ){
-            gameOver=true;
-        }
-    });
-
-    if(!gameOver){
-        score++;
-        scoreEl.textContent=score;
-        requestAnimationFrame(update);
-    }else{
-        ctx.fillStyle="white";
-        ctx.font="30px Arial";
-        ctx.fillText("GAME OVER",110,260);
-    }
-}
-
-setInterval(spawnEnemy,1500);
-update();
-
-function resetGame(){
-    init();
-    update();
-}
-</script>
 
 </body>
 </html>
