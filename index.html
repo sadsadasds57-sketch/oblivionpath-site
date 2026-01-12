@@ -1,32 +1,111 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0; padding: 0;
+    background: #0d0d0d;
+    color: #fff;
+}
+header {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('../img/bg-forest.png') center/cover no-repeat;
+}
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+header p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+.btn-primary {
+    padding: 12px 24px;
+    background: #ff6600;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+}
+#features {
+    padding: 50px 20px;
+    background: #111;
+    text-align: center;
+}
+#gallery {
+    padding: 50px 20px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+.grid img {
+    width: 100%;
+    border-radius: 8px;
+}
+#download {
+    background: #111;
+    text-align: center;
+    padding: 50px 20px;
+}
+.btn-download {
+    font-size: 1.2em;
+    background: #00cc66;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9em;
+    background: #090909;
+}
+xxxxxxxxxxxxxxxxxxxxx
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OblivionPath | Official Game Site</title>
+    <meta charset="UTF-8">
+    <title>2D Adventure Oyunu | Resmi Site</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🌟 2D Adventure Maceraya Hoşgeldin!</h1>
+        <p>Bu oyun seni eşsiz bir dünyaya davet ediyor...</p>
+        <a href="#download" class="btn-primary">Şimdi İndir</a>
+    </header>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: radial-gradient(circle at top, #1a1a2e, #050507);
-      color: #eaeaea;
-    }
+    <section id="features">
+        <h2>🎮 Özellikler</h2>
+        <ul>
+            <li>🗺️ Sürükleyici 2D Macera</li>
+            <li>🔥 Zorlu düşmanlar ve bulmacalar</li>
+            <li>🌳 Harika ortamlar ve animasyonlar</li>
+            <li>💾 Kaydedilebilir ilerleme</li>
+        </ul>
+    </section>
 
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
+    <section id="gallery">
+        <h2>📸 Oyun Görselleri</h2>
+        <div class="grid">
+            <img src="assets/img/bg-forest.png" alt="Orman Arkaplan">
+            <img src="assets/img/hero-run.png" alt="Karakter Koşuyor">
+            <img src="assets/img/enemy.png" alt="Düşman Karakter">
+            <img src="assets/img/tileset.png" alt="Oyun Tile Set">
+        </div>
+    </section>
 
-    h1, h2 {
-      color: #cbb6ff;
-      letter-spacing: 2px;
-    }
+    <section id="download">
+        <h2>⬇️ Oyun İndir</h2>
+        <a href="downloads/2d-adventure.zip" class="btn-download">📦 ZIP Dosyası İndir</a>
+        <p>Windows, Mac & Linux destekli.</p>
+    </section>
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: linear-gradient(rgba(0,
+    <footer>
+        <p>&copy; 2026 2D Adventure Games</p>
+        <p>📧 iletişim@2dadventure.com</p>
+    </footer>
+
+</body>
+</html>
