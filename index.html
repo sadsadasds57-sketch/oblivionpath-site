@@ -1,128 +1,506 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>nameofwebsite</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background-image: url('background.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+<!DOCTYPE html><html lang="en"><head>
+        <title>Depth Shade</title>
+        <meta content="Depth Shade" property="og:title" />
+        <meta content="Depth Shade is a cosmic adventure across inner space.Become your own existential threat and put out the fires of eternity." property="og:description" />
+        <meta content="https://depthshade.com" property="og:url" />
+        <meta content="images/cast_top_0.png" property="og:image" />
+        <meta content="#43B581" data-react-helmet="true" name="theme-color" />
+        <meta name="viewport" content="user-scalable = no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua:300,600,700,800|Open+Sans:400,400i,600i,800,800i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet">        
+        <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/manifest.json?v=2bwdGoKlXP">
+        <link rel="shortcut icon" href="favicon.ico">
+        <script async="" src="js/fbevents.js"></script><script defer="" src="js/index.js"></script>
+        <link rel="stylesheet" href="css/styles.css">
+        <meta name="theme-color" content="#ffffff">
+        
+        <style>
+          .depth-shade-logo {
+            max-width: 400px;
+            height: auto;
+          }
+        </style>
 
-    h1 {
-      margin-top: 50px;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
-    }
+ <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '727460846117295');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=727460846117295&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
-    h3, p {
-      text-align: center;
-      max-width: 700px;
-      margin: 10px auto;
-      color: #ddd;
-    }
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-85HRL0PKD6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    .game-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      width: 90%;
-      max-width: 1400px;
-      margin: 50px auto;
-    }
+  gtag('config', 'G-85HRL0PKD6');
+</script>
 
-    .game-card {
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      backdrop-filter: blur(6px);
-      overflow: hidden;
-    }
+    </head>
 
-    .game-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 15px rgba(76, 175, 80, 0.8);
-    }
+    <body>
 
-    .game-card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 12px;
-      margin-bottom: 15px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
+        <div id="top-bar" class="bg-black">
+            <ul>
+                <li>
+                  	<svg class="depth-shade-logo"
+     width="230"
+     height="75"
+     viewBox="0 0 576 160"
+     xmlns="http://www.w3.org/2000/svg">
 
-    .game-card:hover img {
-      transform: scale(1.1);
-    }
-
-    .game-card span {
-      display: block;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      transition: color 0.3s ease;
-    }
-
-    .game-card:hover span {
-      color: #4CAF50;
-    }
-
-    footer {
-      margin: 40px 0 20px 0;
-      font-size: 0.9rem;
-      color: #bbb;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <h1>your name here</h1>
-  <h3>your description here</h3>
-  <p>Some of the games may take a while to load.</p>
-
-  <!-- Normal Games -->
-  <div class="game-buttons">
-    <div class="game-card" onclick="openGame('folderhere/play.html')"><img src="img/1.webp"><span>Name of game/video</span></div>
-    <!-- (other public games here) -->
-  </div>
-
-  <footer>
-    &copy; yourname her
-  </footer>
-
-  <script>
-    function openGame(url){
-      const win = window.open();
-      if (url) {
-        const iframe = document.createElement("iframe");
-        iframe.style.border = "none";
-        iframe.style.width = "100%";
-        iframe.style.height = "100%";
-        iframe.src = url;
-        win.document.body.style.margin = "0";
-        win.document.body.style.height = "100vh";
-        win.document.body.appendChild(iframe);
+  <defs>
+    <style>
+      .logo-text {
+        font-family: 'Cinzel', serif;
+        font-weight: 400;
+        font-size: 48px;
+        letter-spacing: 8px;
+        fill: #d4af37;
       }
-    }
-  </script>
-</body>
-</html>
+      .logo-line {
+        stroke: #d4af37;
+        stroke-width: 2;
+        fill: none;
+      }
+      .logo-circle {
+        stroke: #d4af37;
+        stroke-width: 2.5;
+        fill: none;
+      }
+    </style>
+  </defs>
+
+  <text x="35" y="90" class="logo-text">DEPTH</text>
+  <line x1="245" y1="80" x2="265" y2="80" class="logo-line" />
+  <text x="275" y="90" class="logo-text">SHADE</text>
+  <line x1="275" y1="95" x2="520" y2="50" class="logo-line" stroke-width="2.5" />
+  <circle cx="505" cy="55" r="18" class="logo-circle" />
+  <line x1="485" y1="75" x2="525" y2="35" class="logo-line" stroke-width="2.5" />
+  <polygon points="525,35 520,40 528,43" fill="#d4af37" />
+
+</svg>
+
+                </li>
+                <li><a href="#about" title="About">About</a></li>
+                <li><a href="#cast" title="The Cast">The Cast</a></li>
+                <li><a href="#faq" title="FAQ">FAQ</a></li>
+                <li><a href="#follow" title="Follow">Follow</a></li>
+                <li><a href="https://www.dropbox.com/scl/fi/v2w2kbkmjz93hzjdhihw1/Depth_Shade.zip?rlkey=hvfnhn5rijcs7oa7edkbhlivv&st=buwkbzvx&dl=1" title="Download Now" target="_blank">Download Now</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+
+            <section id="intro" class="full-width bg-stars-white">
+                <div id="video-box" class="six-span-center full-span-mobile no-mobile-padding no-float"> 
+                    <div class="video-wrapper">
+<div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1153031828?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Depth Shade Official Teaser"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                                        
+                <div class="full-span header extra-bold">
+                    <h1>Depth Shade is a cosmic adventure across inner space.</h1>
+                    <h1>Become your own existential threat and put out the fires of eternity.</h1>
+
+                    <div class="six-span-center full-span-mobile text-center body-copy">
+                        <style id="INLINE_PEN_STYLESHEET_ID">
+                            @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+                        /* psuedo element animations */
+                        @-webkit-keyframes downloadBounce {
+                          to {
+                            -webkit-transform: translateY(0px) rotate(50deg);
+                          }
+                        }
+                        @-moz-keyframes downloadBounce {
+                          to {
+                            -moz-transform: translateY(0px) rotate(50deg);
+                          }
+                        }
+                        @keyframes downloadBounce {
+                          to {
+                            -webkit-transform: translateY(0px) rotate(50deg);
+                            -moz-transform: translateY(0px) rotate(50deg);
+                            -ms-transform: translateY(0px) rotate(50deg);
+                            -o-transform: translateY(0px) rotate(50deg);
+                            transform: translateY(0px) rotate(50deg);
+                          }
+                        }
+                        @-webkit-keyframes downloadBounce2 {
+                          to {
+                            -webkit-transform: translateY(0px) rotate(-50deg);
+                          }
+                        }
+                        @-moz-keyframes downloadBounce2 {
+                          to {
+                            -moz-transform: translateY(0px) rotate(-50deg);
+                          }
+                        }
+                        @keyframes downloadBounce2 {
+                          to {
+                            -webkit-transform: translateY(0px) rotate(-50deg);
+                            -moz-transform: translateY(0px) rotate(-50deg);
+                            -ms-transform: translateY(0px) rotate(-50deg);
+                            -o-transform: translateY(0px) rotate(-50deg);
+                            transform: translateY(0px) rotate(-50deg);
+                          }
+                        }
+                        .download {
+                          /* rounded corner overflow mask fix */
+                          -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+                          overflow: hidden;
+                          border-radius: 5px;
+                          -webkit-box-sizing: border-box;
+                          -moz-box-sizing: border-box;
+                          box-sizing: border-box;
+                          background: #007ccd;
+                          border: 2px solid #007ccd;
+                          color: white;
+                          padding: 26px 0 26px 28px;
+                          width: 220px;
+                          display: inline-block;
+                          position: relative;
+                          -webkit-transition: all 300ms ease;
+                          -moz-transition: all 300ms ease;
+                          transition: all 300ms ease;
+                          margin-right: 20px;
+                        }
+                        .download span {
+                          display: block;
+                          position: relative;
+                          z-index: 1;
+                          -webkit-transform: translate(0, 0);
+                          -moz-transform: translate(0, 0);
+                          -ms-transform: translate(0, 0);
+                          -o-transform: translate(0, 0);
+                          transform: translate(0, 0);
+                        }
+                        .download span:after, .download span:before {
+                          content: "";
+                          width: 1px;
+                          height: 16px;
+                          background: #007ccd;
+                          opacity: 0;
+                          position: absolute;
+                          left: 50%;
+                          top: 100%;
+                          -webkit-transition: all 10ms ease-out;
+                          -moz-transition: all 10ms ease-out;
+                          transition: all 10ms ease-out;
+                          -webkit-transform-origin: center bottom;
+                          -moz-transform-origin: center bottom;
+                          -ms-transform-origin: center bottom;
+                          -o-transform-origin: center bottom;
+                          transform-origin: center bottom;
+                          -webkit-transform: translateY(0) rotate(0deg);
+                          -moz-transform: translateY(0) rotate(0deg);
+                          -ms-transform: translateY(0) rotate(0deg);
+                          -o-transform: translateY(0) rotate(0deg);
+                          transform: translateY(0) rotate(0deg);
+                          -webkit-animation: 0;
+                          -moz-animation: 0;
+                          animation: 0;
+                        }
+                        .download svg {
+                          z-index: 0;
+                          fill: white;
+                          position: absolute;
+                          left: 20%;
+                          top: 50%;
+                          -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(0.04857);
+                          -moz-transform: translate(-50%, -50%) rotate(0deg) scale(0.04857);
+                          -ms-transform: translate(-50%, -50%) rotate(0deg) scale(0.04857);
+                          -o-transform: translate(-50%, -50%) rotate(0deg) scale(0.04857);
+                          transform: translate(-50%, -50%) rotate(0deg) scale(0.04857);
+                          -webkit-transition: all 350ms ease-out;
+                          -moz-transition: all 350ms ease-out;
+                          transition: all 350ms ease-out;
+                          height: 700px;
+                        }
+                        .download svg#linux {
+                          -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(0.05857);
+                          -moz-transform: translate(-50%, -50%) rotate(0deg) scale(0.05857);
+                          -ms-transform: translate(-50%, -50%) rotate(0deg) scale(0.05857);
+                          -o-transform: translate(-50%, -50%) rotate(0deg) scale(0.05857);
+                          transform: translate(-50%, -50%) rotate(0deg) scale(0.05857);
+                        }
+                        .download:hover {
+                          padding: 26px 0;
+                          color: #007ccd;
+                        }
+                        .download:hover svg {
+                          left: 50%;
+                          -webkit-transform: translate(-50%, -50%) rotate(60deg) scale(1);
+                          -moz-transform: translate(-50%, -50%) rotate(60deg) scale(1);
+                          -ms-transform: translate(-50%, -50%) rotate(60deg) scale(1);
+                          -o-transform: translate(-50%, -50%) rotate(60deg) scale(1);
+                          transform: translate(-50%, -50%) rotate(60deg) scale(1);
+                        }
+                        .download:hover svg#windows {
+                          -webkit-transform: translate(-50%, -10%) rotate(60deg) scale(1);
+                          -moz-transform: translate(-50%, -10%) rotate(60deg) scale(1);
+                          -ms-transform: translate(-50%, -10%) rotate(60deg) scale(1);
+                          -o-transform: translate(-50%, -10%) rotate(60deg) scale(1);
+                          transform: translate(-50%, -10%) rotate(60deg) scale(1);
+                        }
+                        .download:hover svg#linux {
+                          -webkit-transform: translate(-120%, -125%) rotate(60deg) scale(6);
+                          -moz-transform: translate(-120%, -125%) rotate(60deg) scale(6);
+                          -ms-transform: translate(-120%, -125%) rotate(60deg) scale(6);
+                          -o-transform: translate(-120%, -125%) rotate(60deg) scale(6);
+                          transform: translate(-120%, -125%) rotate(60deg) scale(6);
+                        }
+                        .download:hover span {
+                          -webkit-transform: translate(0, -10px) scale(1.1);
+                          -moz-transform: translate(0, -10px) scale(1.1);
+                          -ms-transform: translate(0, -10px) scale(1.1);
+                          -o-transform: translate(0, -10px) scale(1.1);
+                          transform: translate(0, -10px) scale(1.1);
+                          -webkit-transition: -webkit-transform 400ms ease-out 400ms;
+                          -moz-transition: -moz-transform 400ms ease-out 400ms;
+                          transition: transform 400ms ease-out 400ms;
+                        }
+                        .download:hover span:after, .download:hover span:before {
+                          opacity: 1;
+                          -webkit-transition: all 400ms ease-out 400ms, -webkit-transform 300ms ease-in 100ms;
+                          -moz-transition: all 400ms ease-out 400ms, -moz-transform 300ms ease-in 100ms;
+                          transition: all 400ms ease-out 400ms, transform 300ms ease-in 100ms;
+                        }
+                        .download:hover span:after {
+                          -webkit-transform: translateY(7px) rotate(50deg);
+                          -moz-transform: translateY(7px) rotate(50deg);
+                          -ms-transform: translateY(7px) rotate(50deg);
+                          -o-transform: translateY(7px) rotate(50deg);
+                          transform: translateY(7px) rotate(50deg);
+                          -webkit-animation: downloadBounce 800ms linear alternate infinite;
+                          -moz-animation: downloadBounce 800ms linear alternate infinite;
+                          animation: downloadBounce 800ms linear alternate infinite;
+                        }
+                        .download:hover span:before {
+                          -webkit-transform: translateY(7px) rotate(-50deg);
+                          -moz-transform: translateY(7px) rotate(-50deg);
+                          -ms-transform: translateY(7px) rotate(-50deg);
+                          -o-transform: translateY(7px) rotate(-50deg);
+                          transform: translateY(7px) rotate(-50deg);
+                          -webkit-animation: downloadBounce2 800ms linear alternate infinite;
+                          -moz-animation: downloadBounce2 800ms linear alternate infinite;
+                          animation: downloadBounce2 800ms linear alternate infinite;
+                        }
+                          </style>
+                        
+                          
+                        <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+                        <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-6d8bf8b4b479137260842506acbb12717dace0823c023e08b96360e60b0840d9.js"></script>
+                        <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+                        <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+                        </head>
+                        
+                        <body>
+                          <a href="https://www.dropbox.com/scl/fi/v2w2kbkmjz93hzjdhihw1/Depth_Shade.zip?rlkey=hvfnhn5rijcs7oa7edkbhlivv&st=buwkbzvx&dl=1" class="download">
+                          <svg height="700px" width="700px" viewBox="0 0 512 499.81" version="1.1" id="windows">
+                            <path d="M0,67.048l207.238-27.137v197.803H0V67.048z M207.238,459.904L0,432.762V262.096h207.238V459.904z M512,0v237.714H231.619  v-201L512,0z M512,499.81l-280.381-36.714v-201H512V499.81z"></path>
+                          </svg>
+                          <span>Windows</span>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="key-anim" class="full-width bg-gold">
+                <div id="key-img">
+                    <img src="images/key_hook.gif">
+                </div>
+                <div class="six-span-center full-span-mobile text-center body-copy">
+                    <p>Dual noir adventures beyond time and space; one where the Big Bang was never fired, the other an explosion of color and sin. Your new lover is tangled in rumors of a Bigger Bang. Can you unravel its mystery and stop the threat to the cosmic city?</p> 
+                    <br>
+                    <p>Hit the street; counter the culture; be changed.</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="full-span no-mobile-padding">
+                    <img-comparison-slider class="no-focus-outline">
+                        <img slot="first" ,="" src="images/ss_city_br.gif">
+                        <img slot="second" ,="" src="images/ss_city_ct.gif">
+                        <svg slot="handle" class="handle" xmlns="http://www.w3.org/2000/svg" width="75" viewBox="-8 -3 16 6">
+                            <path d="M -5 -2 L -7 0 L -5 2 M 5 -2 L 7 0 L 5 2" stroke="#FFF" stroke-width="3" fill="none" vector-effect="non-scaling-stroke"></path>
+                        </svg>
+                    </img-comparison-slider>
+                </div>
+            </section>
+
+            <a name="about"></a>
+
+            <section id="thumbnails">
+                <div class="seven-span-center full-span-mobile">
+                    <h1>Explore a cosmic city split in two. Divided by corrupt darkness and decadent color, but always lit by flames.</h1>
+                </div>
+                
+                <div class="eight-span-center full-span-mobile no-mobile-padding">
+                    <div class="half-span no-padding no-mobile-padding">
+                        <img class="img-border" src="images/thumb_alley.gif" alt="Explore the streets and the stars">
+                        <div class="caption-copy">Explore the streets and the stars.</div>
+                    </div>
+                    <div class="half-span no-padding no-mobile-padding">
+                        <img class="img-border" src="images/thumb_butcher.gif" alt="Question gossipy shopkeepers">
+                        <div class="caption-copy">Question gossipy shopkeepers.</div>
+                    </div>
+                </div>
+
+                <div class="eight-span-center full-span-mobile no-mobile-padding">
+                    <div class="half-span no-padding no-mobile-padding">
+                        <img class="img-border" src="images/thumb_animatronic.gif" alt="Play with animatronics">
+                        <div class="caption-copy">Play with animatronics.</div>
+                    </div>
+                    <div class="half-span no-padding no-mobile-padding">
+                        <img class="img-border" src="images/thumb_interrogation.gif" alt="Try not to break under harsh interrogation">
+                        <div class="caption-copy">Try not to break under harsh interrogation.</div>
+                    </div>
+                </div>
+
+                <div class="eight-span-center full-span-mobile no-mobile-padding">
+                    <div class="full-span no-padding no-mobile-padding">
+                        <img class="img-border" src="images/thumb_mindmap.gif" alt="View goals, tasks, and knowledge about the world in No Man's MIND'S EYE">
+                        <div class="caption-copy">View goals, tasks, and knowledge about the world in No Man's <span class="extra-extra-bold">MIND'S EYE.</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <a name="cast"></a>
+
+            <section class="full-width">
+                <div id="nm-header" class="header">
+                    <h1>Who is No Man?</h1>
+                </div>
+                <div id="nm-mushroom" class="hide-on-mobile">
+                    <div id="bg-left" class="half-span no-gutter">
+                        <div id="bg-left-img"></div>
+                        <div id="about-nm-left" class="body-copy">
+                            <div>A watch maker stuck in a deterministic hell.</div>
+                            <div>Working on his masterpiece, a clocktower financed by scheming mobsters.</div>
+                            <div>Must stop the Bigger Bang.</div>
+                        </div>
+                        <img id="mushroom-left" src="images/nm_mushroom_halfL.png">
+                    </div>
+                    <div id="bg-right" class="half-span no-gutter">
+                        <div id="bg-right-img"></div>
+                        <div id="about-nm-right" class="body-copy">
+                            <div>A former watch maker stuck in the penal system.</div>
+                            <div>Recently released early as a criminal informant to spy on a counterculture cult.</div>
+                            <div>Must stop the Bigger Bang.</div>
+                        </div>
+                        <img id="mushroom-right" src="images/nm_mushroom_halfR.png">
+                    </div>
+                </div>
+                <div id="nm-mushroom-mobile" class="visible-mobile-only full-span no-mobile-padding bg-stars-white">
+                    <img src="images/nm_mushroom_mobile.png">
+                    <div class="half-span-mobile no-mobile-padding">
+                        <div id="nm-mobile-copy-left" class="body-copy nm-copy">
+                            <div>A watch salesman stuck in a deterministic hell.</div>
+                            <div>Working on his masterpiece, a clocktower financed by scheming mobsters.</div>
+                            <div>Must stop the Bigger Bang.</div>
+                        </div>
+                    </div>
+                    <div class="half-span-mobile no-mobile-padding">
+                        <div id="nm-mobile-copy-right" class="body-copy nm-copy">
+                            <div>A former watch salesman stuck in the penal system.</div>
+                            <div>Recently released early as a criminal informant to spy on a counterculture cult.</div>
+                            <div>Must stop the Bigger Bang.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="full-span no-mobile-padding">
+                    <img-comparison-slider class="no-focus-outline">
+                        <img slot="first" ,="" src="images/ss_club_br.gif">
+                        <img slot="second" ,="" src="images/ss_club_ct.gif">
+                        <svg slot="handle" class="handle" xmlns="http://www.w3.org/2000/svg" width="75" viewBox="-8 -3 16 6">
+                            <path d="M -5 -2 L -7 0 L -5 2 M 5 -2 L 7 0 L 5 2" stroke="#FFF" stroke-width="3" fill="none" vector-effect="non-scaling-stroke"></path>
+                        </svg>
+                    </img-comparison-slider>
+                </div>
+            </section>
+
+            <a name="faq"></a>
+
+            <section id="faq">
+                <div id="faq-title" class="full-span title"></div>
+                <div class="question seven-span-center full-span-mobile">
+                    <h1>"Do I need to play Genesis Noir first?"</h1>
+                    <div class="body-copy">No. Both Genesis Noir and Depth Shade are written to be enjoyed and understood on their own. If you've played Genesis Noir the additional references and background on the characters might make for a richer experience of Depth Shade but, if not, your experience of Depth Shade won't be negatively impacted at all. You could even play them in reverse order - time is not a constant!</div>
+                </div>
+                <div class="question eight-span-center full-span-mobile">
+                    <h1>"What platforms can I play Depth Shade on?"</h1>
+                    <div class="body-copy">Depth Shade is currently being developed for Windows PC.</div>
+                </div>
+                <div class="question seven-span-center full-span-mobile">
+                    <h1>"Who is making Depth Shade?"</h1>
+                    <div class="body-copy">Depth Shade is being developed by <a href="" target="_blank">KarenStudios</a>, a small school studio in New York City. The music and sound design for Depth Shade is being created by <a href="" target="_new">Skillbards</a>, a small team of composers and sound designers based in New York.</div>
+                </div>
+                <div id="faq-bottom-divider" class="full-span"></div>
+            </section>
+
+            <a name="follow"></a>
+
+            <section id="follow-container">
+                <h1>Follow Depth Shade</h1>
+                <form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                    <input type="email" value="" name="EMAIL" class="email" id="email" placeholder="Enter your email address to subscribe to our newsletter." required="">
+                    <input type="submit" id="submit" value="Subscribe">
+                </form> 
+
+                <div id="social-list">
+                    <ul>
+                        <li><a href="#" title="Twitter" target="_blank">Twitter</a></li>
+                        <li class="social-divider">-</li>
+                        <li><a href="#" title="TikTok" target="_blank">TikTok</a></li>
+                        <li class="social-divider">-</li>                        
+                        <li><a href="#" title="Instagram" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <footer>
+                <a href="" title="Privacy Policy" target="_blank">Privacy Policy</a>
+                <span class="footer-divider">|</span>
+                <span>Copyright © KarenStudios 2026</span>
+            </footer>
+
+        </div>
+
+        <div id="bg-container" style="height: 2716px; transform: translate3d(0px, 0px, 0px);"></div>
+
+        <script>
+            const castInfo = {
+                top: [
+                    { img: 0, name: "Night Owls", desc: "The cast of Black Rapture" },
+                    
+                    { img: 1, name: "Golden Boy", desc: "A talented musician displaced from his home stage." },  
+                    { img: 2, name: "Miss Mass", desc: "Jazz singer and club owner reduced to panhandling." },
+                    { img: 3, name: "See See", desc: "Photographer exposing corruption in the cosmic city." },
+                    { img: 5, name: "The Developers", desc: "Building the cosmic city on the rubble of the slums." },
+                    { img: 4, name: "The General", desc: "High-profile official, operating far from the public's eye." }
+                ],
+                middle: [
